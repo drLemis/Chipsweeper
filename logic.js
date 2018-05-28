@@ -2,6 +2,7 @@ function checkActive(type, activeInputs) {
     result = false;
     if (activeInputs) {
         var active = activeInputs.filter(v => v).length;
+
         switch (type) {
             case "OR":
                 if (active != 0)
@@ -29,7 +30,7 @@ function checkActive(type, activeInputs) {
                     result = true;
                 break;
 
-            case "CLOCK":
+            case "INPUT":
                 if (active != 0)
                     result = true;
                 break;
