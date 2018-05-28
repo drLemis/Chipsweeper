@@ -3,35 +3,72 @@ var elements = new Array;
 function test() {
     elements = new Array;
 
-    createElement(10, 1, "UNIT")
-
-    createElement(4, 5, "OR")
-    connectElement(1, 0, 0)
-
-    createElement(2, 9, "CLOCK")
+    createElement(2, 0, "UNIT")
+    createElement(2, 3, "OR")
+    createElement(0, 6, "CLOCK")
+    createElement(4, 6, "CLOCK")
+    connectElement(1, 0, 1)
     connectElement(2, 1, 0)
-    createElement(6, 9, "CLOCK")
     connectElement(3, 1, 2)
 
-    createElement(16, 5, "AND")
-    connectElement(4, 0, 2)
+    createElement(10, 0, "UNIT")
+    createElement(10, 3, "NOR")
+    createElement(8, 6, "CLOCK")
+    createElement(12, 6, "CLOCK")
+    connectElement(5, 4, 1)
+    connectElement(6, 5, 0)
+    connectElement(7, 5, 2)
 
-    createElement(14, 9, "CLOCK")
-    connectElement(5, 4, 0)
-    createElement(18, 9, "CLOCK")
-    connectElement(6, 4, 2)
+    createElement(18, 0, "UNIT")
+    createElement(18, 3, "XOR")
+    createElement(16, 6, "CLOCK")
+    createElement(20, 6, "CLOCK")
+    connectElement(9, 8, 1)
+    connectElement(10, 9, 0)
+    connectElement(11, 9, 2)
 
-    createElement(10, 6, "AND")
-    connectElement(7, 0, 1)
+    createElement(26, 0, "UNIT")
+    createElement(26, 3, "XNOR")
+    createElement(24, 6, "CLOCK")
+    createElement(28, 6, "CLOCK")
+    connectElement(13, 12, 1)
+    connectElement(14, 13, 0)
+    connectElement(15, 13, 2)
 
-    createElement(8, 12, "CLOCK")
-    connectElement(8, 7, 0)
-    createElement(12, 12, "CLOCK")
-    connectElement(9, 7, 2)
-    createElement(16, 12, "CLOCK")
-    connectElement(10, 8, 2)
-    createElement(2, 14, "CLOCK")
-    connectElement(11, 8, 0)
+
+    createElement(2, 9, "UNIT")
+    createElement(2, 12, "AND")
+    createElement(0, 15, "CLOCK")
+    createElement(4, 15, "CLOCK")
+    connectElement(17, 16, 1)
+    connectElement(18, 17, 0)
+    connectElement(19, 17, 2)
+
+    createElement(10, 9, "UNIT")
+    createElement(10, 12, "NAND")
+    createElement(8, 15, "CLOCK")
+    createElement(12, 15, "CLOCK")
+    connectElement(21, 20, 1)
+    connectElement(22, 21, 0)
+    connectElement(23, 21, 2)
+
+    createElement(18, 9, "HEAD")
+    createElement(18, 12, "BODY")
+    createElement(16, 15, "LEG")
+    createElement(20, 15, "LEG")
+    connectElement(25, 24, 1)
+    connectElement(26, 25, 0)
+    connectElement(27, 25, 2)
+
+
+    createElement(26, 9, "UNIT")
+    createElement(26, 12, "CLOCK")
+    createElement(24, 15, "CLOCK")
+    createElement(28, 15, "CLOCK")
+    connectElement(29, 28, 1)
+    connectElement(30, 29, 0)
+    connectElement(31, 29, 2)
+
 
     drawAllElements();
 }

@@ -7,7 +7,7 @@ const bcolor = "#004010";
 const activeColor = "#00DD00";
 const inactiveColor = "#DD0000";
 
-const gridSize = 35;
+const gridSize = 25.8;
 
 const canvas = document.getElementById("graphCanvas");
 const canvasGraphic = canvas.getContext("2d");
