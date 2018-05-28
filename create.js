@@ -44,9 +44,6 @@ function createElement(x, y, type) {
     element.x = x;
     element.y = y;
 
-    element.coorX = x * gridSize;
-    element.coorY = y * gridSize;
-
     element.width = 3;
     element.height = 2;
     element.type = type
@@ -60,28 +57,4 @@ function createElement(x, y, type) {
 function connectElement(from, to, slot) {
     elements[from].output = to;
     elements[to].input[slot] = from;
-}
-
-function checkActive(type, activeInputs) {
-    result = false;
-    if (activeInputs) {
-        var active = activeInputs.filter(v => v).length;
-        switch (type) {
-            case "OR":
-                if (active > 0)
-                    result = true;
-                break;
-            case "AND":
-                if (active == 2)
-                    result = true;
-                break;
-            case "CLOCK":
-                if (active > 0)
-                    result = true;
-                break;
-            default:
-                break;
-        }
-    }
-    return result;
 }

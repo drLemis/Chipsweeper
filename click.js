@@ -9,7 +9,6 @@ document.getElementById("graphCanvas").addEventListener('click', (e) => {
             element.activeInputs[0] = !element.isActive;
             element.isActive = !element.isActive;
 
-            console.log()
             drawAllElements();
         }
     });
