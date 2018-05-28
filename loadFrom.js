@@ -1,6 +1,6 @@
 var inputText = document.getElementById("loadFrom");
 
-inputText.value = "//create a node, (X, Y, TYPE)\ncreate(14, 2, UNIT)\ncreate(14, 5, AND)\ncreate(12, 9, INPUT)\ncreate(16, 9, INPUT)\n//connect nodes, (FROM, TO, SLOT)\nconnect(1, 0, 1)\nconnect(2, 1, 0)\nconnect(3, 1, 2)\n"
+inputText.value = "//create a node, (X, Y, TYPE)\ncreate(14, 2, UNIT)\ncreate(14, 5, AND)\ncreate(12, 9, INPUT)\ncreate(16, 9, INPUT)\n//connect nodes, (FROM, TO, SLOT)\nconnect(1, 0, 1)\nconnect(2, 1, 0)\nconnect(3, 1, 2)"
 
 
 
