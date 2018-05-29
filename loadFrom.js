@@ -1,5 +1,5 @@
 // document.getElementById("loadFrom").value = "//create a node, (X, Y, TYPE)\ncreate(14, 2, UNIT)\ncreate(14, 5, AND)\ncreate(12, 9, INPUT)\ncreate(16, 9, INPUT)\n//connect nodes, (FROM, TO, SLOT)\nconnect(1, 0, 1)\nconnect(2, 1, 0)\nconnect(3, 1, 2)"
-document.getElementById("loadFrom").value = 'create (15, 6, "UNIT")\ncreate (15, 10, "AND")\ncreate (15, 14, "INPUT")\nconnect (1, 0, 1)\nconnect (2, 1, 0)\nconnect (2, 1, 2)';
+document.getElementById("loadFrom").value = 'create (15, 6, "UNIT")\ncreate (15, 10, "AND")\ncreate (16, 14, "INPUT")\nconnect (1, 0, 1)\nconnect (2, 1, 0)\nconnect (2, 1, 2)';
 
 
 
