@@ -50,7 +50,7 @@ function checkPushed(element) {
 
 function checkConnection(element) {
     if (element.output != undefined) {
-        switch (checkActive(element.type, element.activeInputs)) {
+        switch (checkActive(element)) {
             case true:
                 element.output.forEach(outputID => {
                     for (let index = 0; index < elements[outputID].input.length; index++) {
@@ -100,7 +100,7 @@ function drawConnection(element, drawActive) {
 
                         // line
                         canvasGraphic.strokeStyle = lineInactiveColor;
-                        if (checkActive(element.type, element.activeInputs) && difficulty < 2 && drawActive)
+                        if (checkActive(element) && difficulty < 2 && drawActive)
                             canvasGraphic.strokeStyle = lineActiveColor;
 
                         canvasGraphic.lineWidth = gridSize / 7.5;
@@ -150,9 +150,9 @@ function drawElement(element) {
             canvasGraphic.fillRect(element.x * gridSize, element.y * gridSize, element.width * gridSize, element.height * gridSize);
 
             if (element.output != undefined) {
-                if (checkActive(element.type, element.activeInputs) && difficulty < 3)
+                if (checkActive(element) && difficulty < 3)
                     canvasGraphic.fillStyle = activeColor;
-                else if (!checkActive(element.type, element.activeInputs) && difficulty < 3) {
+                else if (!checkActive(element) && difficulty < 3) {
                     canvasGraphic.fillStyle = inactiveColor;
                 }
                 canvasGraphic.fillRect((element.x + element.width - 0.5) * gridSize, (element.y + 0.25) * gridSize, gridSize / 4, gridSize / 4);

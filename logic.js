@@ -1,9 +1,9 @@
-function checkActive(type, activeInputs) {
+function checkActive(element) {
     result = false;
-    if (activeInputs) {
-        var active = activeInputs.filter(v => v).length;
+    if (element.activeInputs) {
+        var active = element.activeInputs.filter(v => v).length;
 
-        switch (type) {
+        switch (element.type) {
             case "OR":
                 if (active != 0)
                     result = true;
@@ -32,6 +32,11 @@ function checkActive(type, activeInputs) {
 
             case "INPUT":
                 if (active != 0)
+                    result = true;
+                break;
+
+            case "UNIT":
+                if (element.input && active == element.input.filter(Boolean).length)
                     result = true;
                 break;
             default:
