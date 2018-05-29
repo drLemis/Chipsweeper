@@ -15,31 +15,52 @@
     </style>
 </head>
 
-<body onload="simple()">
+<body onload="refreshLevelList()">
     <div style="text-align:center;">
-        <canvas id="graphCanvas" width="800px" height="440px" style="border:1px solid grey;background-color: #105010"> </canvas>
-        <br>
-        <button class="button" id="button" onclick="demo()">DEMO</button>
-        <button class="button" id="button" onclick="simple()">SIMPLE</button>
-        <br>DIFFICULTY: <input type="range" min="1" max="3" value="1" class="slider" id="sliderDifficulty" oninput="setDifficulty()">
-    </div>
-
-    <div>
-        <textarea id="loadFrom" rows="9" cols="40"></textarea>
-        <br>
-        <button class="button" id="button" onclick="loadFrom()">LOAD</button>
+        <div style="display: inline-block;">
+            <div style="display: inline-block;">
+                <button class="button" id="button" onclick="openFrom(document.getElementById('levelSelect').value)">OPEN</button>
+                <br>
+                <br>
+                <select size="31" id="levelSelect">
+                <option disabled>LEVEL</option>
+                <option selected value="demo">DEMO</option>
+                <option value="001 ">001</option>
+                <option value="002 ">002</option>
+                <option value="003 ">003</option>
+                <option value="004 ">004</option>
+            </select>
+                <br>DFFCLT
+                <br>
+                <select id="difficulty" onchange="setDifficulty()">
+                <option value="1 ">EASY</option>
+                <option value="2 ">HARD</option>
+                <option value="3 ">REAL</option>
+            </select>
+            </div>
+            <div style="display: inline-block; ">
+                <canvas id="graphCanvas" width="800px" height="600px" style="border:1px solid grey;background-color: #105010"> </canvas>
+            </div>
+            <div style="display: inline-block; ">
+                <button class="button" id="button" onclick="loadFrom(document.getElementById('loadFrom').value)">LOAD</button>
+                <br>
+                <br>
+                <textarea id="loadFrom" rows="37 " cols="40 "></textarea>
+            </div>
+        </div>
     </div>
     <br>
-    <script src="draw.js"></script>
-    <script src="click.js"></script>
-    <script src="logic.js"></script>
+    <script src="create.js "></script>
 
-    <script src="create.js"></script>
-    <script src="loadFrom.js"></script>
+    <script src="draw.js "></script>
+    <script src="click.js "></script>
+    <script src="logic.js "></script>
+
+    <script src="loadFrom.js "></script>
 </body>
 
-<div class="footer">
-    2018.05.26, v1.05
+<div class="footer ">
+    2018.05.26, v1.06
 </div>
 
 </html>

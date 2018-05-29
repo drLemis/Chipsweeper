@@ -8,7 +8,7 @@ const backgroundColor = "#004010";
 const activeColor = "#00DD00";
 const inactiveColor = "#330000";
 
-const gridSize = 25.8;
+const gridSize = 25;
 
 const canvas = document.getElementById("graphCanvas");
 const canvasGraphic = canvas.getContext("2d");
@@ -16,7 +16,7 @@ const canvasGraphic = canvas.getContext("2d");
 var difficulty = 1;
 
 function setDifficulty() {
-    difficulty = document.getElementById("sliderDifficulty").value;
+    difficulty = document.getElementById("difficulty").value;
     drawAllElements();
 }
 
