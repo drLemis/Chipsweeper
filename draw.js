@@ -32,6 +32,10 @@ function drawAllElements() {
     })
 
     elements.slice().reverse().forEach(element => {
+        drawConnection(element, true)
+    })
+
+    elements.slice().reverse().forEach(element => {
         drawElement(element)
     })
 }
@@ -48,39 +52,56 @@ function checkConnection(element) {
     if (element.output != undefined) {
         switch (checkActive(element.type, element.activeInputs)) {
             case true:
-                elements[element.output].activeInputs[elements[element.output].input.indexOf(element.id)] = true;
+                element.output.forEach(outputID => {
+                    for (let index = 0; index < elements[outputID].input.length; index++) {
+                        if (elements[outputID].input[index] == element.id)
+                            elements[outputID].activeInputs[index] = true;
+                    }
+                });
                 break;
             default:
-                elements[element.output].activeInputs[elements[element.output].input.indexOf(element.id)] = false;
+                element.output.forEach(outputID => {
+                    for (let index = 0; index < elements[outputID].input.length; index++) {
+                        if (elements[outputID].input[index] == element.id)
+                            elements[outputID].activeInputs[index] = false;
+                    }
+                });
                 break;
         }
     }
 }
 
-function drawConnection(element) {
+function drawConnection(element, drawActive) {
     if (element.output != undefined) {
+        element.output.forEach(outputID => {
+            element.output.forEach(outputID => {
+                for (let index = 0; index < elements[outputID].input.length; index++) {
+                    if (elements[outputID].input[index] == element.id) {
 
-        canvasGraphic.strokeStyle = lineInactiveColor;
-        if (checkActive(element.type, element.activeInputs) && difficulty < 2)
-            canvasGraphic.strokeStyle = lineActiveColor;
+                        canvasGraphic.strokeStyle = lineInactiveColor;
+                        if (checkActive(element.type, element.activeInputs) && difficulty < 2 && drawActive)
+                            canvasGraphic.strokeStyle = lineActiveColor;
 
-        canvasGraphic.lineWidth = gridSize / 10;
+                        canvasGraphic.lineWidth = gridSize / 10;
+                        var startX = (+element.x + +(element.width / 2)) * +gridSize;
+                        var startY = (+element.y + +(element.height / 2)) * +gridSize;
+                        var endX = (+elements[outputID].x + index + +0.5) * +gridSize;
+                        var endY = (+elements[outputID].y) * +gridSize + +gridSize * +2;
 
-        var startX = (+element.x + +(element.width / 2)) * +gridSize;
-        var startY = (+element.y + +(element.height / 2)) * +gridSize;
-        var endX = (+elements[element.output].x + +elements[element.output].input.indexOf(element.id) + +0.5) * +gridSize;
-        var endY = (+elements[element.output].y) * +gridSize + +gridSize * +2;
+                        canvasGraphic.beginPath();
+                        canvasGraphic.moveTo(startX, startY);
 
-        canvasGraphic.beginPath();
-        canvasGraphic.moveTo(startX, startY);
+                        canvasGraphic.lineTo(startX, endY + gridSize);
 
-        canvasGraphic.lineTo(startX, endY + gridSize);
+                        canvasGraphic.lineTo(endX, endY + gridSize);
 
-        canvasGraphic.lineTo(endX, endY + gridSize);
+                        canvasGraphic.lineTo(endX, endY);
 
-        canvasGraphic.lineTo(endX, endY);
-
-        canvasGraphic.stroke();
+                        canvasGraphic.stroke();
+                    }
+                }
+            });
+        });
     }
 }
 

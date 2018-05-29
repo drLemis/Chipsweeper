@@ -10,7 +10,7 @@ function createElement(x, y, type) {
     element.width = 3;
     element.height = 2;
     element.type = type
-    element.output;
+    element.output = new Array;
     element.input = new Array;
     element.activeInputs = new Array;
 
@@ -18,6 +18,6 @@ function createElement(x, y, type) {
 }
 
 function connectElement(from, to, slot) {
-    elements[from].output = to;
+    elements[from].output.push(to);
     elements[to].input[slot] = from;
 }
