@@ -32,42 +32,46 @@ function refreshLevelList() {
 
 
 function openFrom(id) {
-    var url = "https://rawgit.com/drLemis/Chipsweeper/master/level/" + id;
-    var storedText;
+    if (id) {
+        var url = "https://rawgit.com/drLemis/Chipsweeper/master/level/" + id;
+        var storedText;
 
-    fetch(url)
-        .then(function(response) {
-            response.text().then(function(text) {
-                storedText = text;
-                done();
+        fetch(url)
+            .then(function(response) {
+                response.text().then(function(text) {
+                    storedText = text;
+                    done();
+                });
             });
-        });
 
-    function done() {
-        loadFrom(storedText);
+        function done() {
+            loadFrom(storedText);
+        }
     }
 }
 
 function loadFrom(input) {
-    var inputTextArray = input.match(/[^\r\n]+/g);
-    elements = new Array;
+    if (input) {
+        var inputTextArray = input.match(/[^\r\n]+/g);
+        elements = new Array;
 
-    if (inputTextArray && inputTextArray.length > 0) {
-        inputTextArray.forEach(line => {
-            if (/(create *\(\d+, *\d+, *\"*.+?\"*\))/i.test(line)) {
-                var reg = /\((\d+), *(\d+), *\"*(.+?)\"*\)/;
-                var match;
-                if ((match = reg.exec(line)) !== null) {
-                    createElement(parseInt(match[1]), parseInt(match[2]), match[3])
+        if (inputTextArray && inputTextArray.length > 0) {
+            inputTextArray.forEach(line => {
+                if (/(create *\(\d+, *\d+, *\"*.+?\"*\))/i.test(line)) {
+                    var reg = /\((\d+), *(\d+), *\"*(.+?)\"*\)/;
+                    var match;
+                    if ((match = reg.exec(line)) !== null) {
+                        createElement(parseInt(match[1]), parseInt(match[2]), match[3])
+                    }
+                } else if (/(connect *\(\d+, *\d+, *[0-3]\))/i.test(line)) {
+                    var reg = /\((\d+), *(\d+), *([0-3])\)/;
+                    var match;
+                    if ((match = reg.exec(line)) !== null) {
+                        connectElement(parseInt(match[1]), parseInt(match[2]), parseInt(match[3]))
+                    }
                 }
-            } else if (/(connect *\(\d+, *\d+, *[0-3]\))/i.test(line)) {
-                var reg = /\((\d+), *(\d+), *([0-3])\)/;
-                var match;
-                if ((match = reg.exec(line)) !== null) {
-                    connectElement(parseInt(match[1]), parseInt(match[2]), parseInt(match[3]))
-                }
-            }
-        });
-        drawAllElements();
+            });
+            drawAllElements();
+        }
     }
 }
