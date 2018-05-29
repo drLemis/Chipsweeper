@@ -7,9 +7,18 @@ function createElement(x, y, type) {
     element.x = x;
     element.y = y;
 
-    element.width = 3;
-    element.height = 2;
     element.type = type
+
+    switch (type) {
+        case "INPUT":
+            element.width = 1;
+            element.height = 1;
+            break;
+        default:
+            element.width = 3;
+            element.height = 2;
+            break;
+    }
     element.output = new Array;
     element.input = new Array;
     element.activeInputs = new Array;
