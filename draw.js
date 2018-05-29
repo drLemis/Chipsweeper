@@ -103,7 +103,7 @@ function drawConnection(element, drawActive) {
                         if (checkActive(element.type, element.activeInputs) && difficulty < 2 && drawActive)
                             canvasGraphic.strokeStyle = lineActiveColor;
 
-                        canvasGraphic.lineWidth = gridSize / 10;
+                        canvasGraphic.lineWidth = gridSize / 7.5;
                         var startX = (+element.x + +(element.width / 2)) * +gridSize;
                         var startY = (+element.y + +(element.height / 2)) * +gridSize;
                         var endX = (+elements[outputID].x + index + +0.5) * +gridSize;
