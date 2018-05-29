@@ -7,7 +7,7 @@ document.getElementById("loadFrom").value = 'create (15, 6, "UNIT")\ncreate (15,
 function refreshLevelList() {
     var selectList = document.getElementById('levelSelect');
     var i;
-    for (i = selectList.options.length - 1; i >= 0; i--) {
+    for (i = selectList.options.length - 1; i > 0; i--) {
         selectList.remove(i);
     }
 
