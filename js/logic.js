@@ -8,24 +8,12 @@ function checkPushed(element) {
 
 function checkConnection(element) {
     if (element.output != undefined) {
-        switch (checkActive(element)) {
-            case true:
-                element.output.forEach(outputID => {
-                    for (let index = 0; index < elements[outputID].input.length; index++) {
-                        if (elements[outputID].input[index] == element.id)
-                            elements[outputID].activeInputs[index] = true;
-                    }
-                });
-                break;
-            default:
-                element.output.forEach(outputID => {
-                    for (let index = 0; index < elements[outputID].input.length; index++) {
-                        if (elements[outputID].input[index] == element.id)
-                            elements[outputID].activeInputs[index] = false;
-                    }
-                });
-                break;
-        }
+        element.output.forEach(outputID => {
+            for (let index = 0; index < elements[outputID].input.length; index++) {
+                if (elements[outputID].input[index] == element.id)
+                    elements[outputID].activeInputs[index] = checkActive(element);
+            }
+        });
     }
 }
 
