@@ -1,4 +1,5 @@
 var winCondition = false;
+var panelActive = false;
 
 function checkWin() {
     if (units && units.length > 0 && !units.includes(false)) {
@@ -24,6 +25,8 @@ function drawOverlay() {
             var intervalID = setInterval(function() {
                     if (actualAlpha > 0.5 && winCondition == true) {
                         window.clearInterval(intervalID);
+                        panelActive = true;
+
                         // panel
                         canvasGraphic.fillStyle = elementColor;
                         canvasGraphic.fillRect(canvas.width / 3, canvas.height / 3, canvas.width / 3, canvas.height / 3);

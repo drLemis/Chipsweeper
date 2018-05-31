@@ -101,8 +101,6 @@ function drawConnection(element) {
 }
 
 function drawElement(element) {
-
-
     switch (element.type) {
         case "INPUT":
             canvasGraphic.beginPath();

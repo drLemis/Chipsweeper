@@ -6,7 +6,7 @@ document.getElementById("graphCanvas").addEventListener('click', (e) => {
         y: e.pageY - e.currentTarget.offsetTop
     };
 
-    if (winCondition) {
+    if (winCondition && panelActive) {
         if (pos.x - (canvas.width / 3 + gridSize) >= 0 && pos.y - (canvas.height / 2 - gridSize) >= 0 &&
             pos.x - (canvas.width / 3 * 2 - gridSize) < 0 && pos.y - (canvas.height / 2 + 0.5 * gridSize) < 0) {
             loadLast();
