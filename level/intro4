@@ -1,0 +1,32 @@
+write (12, 4, Some levels will be a little harder)
+
+create (15, 6, UNIT)
+
+create (12, 10, AND)
+create (18, 10, AND)
+
+create (10, 14, OR)
+create (20, 14, AND)
+
+create (10, 18, INPUT)
+create (12, 18, INPUT)
+create (14, 18, INPUT)
+create (16, 18, INPUT)
+create (18, 18, INPUT)
+create (22, 18, INPUT)
+
+connect (1, 0, 0)
+connect (2, 0, 2)
+
+connect (3, 1, 0)
+connect (3, 1, 0)
+
+connect (4, 2, 2)
+
+connect (5, 3, 0)
+connect (6, 3, 2)
+connect (7, 1, 2)
+connect (8, 0, 1)
+connect (9, 2, 0)
+connect (9, 4, 0)
+connect (10, 4, 2)

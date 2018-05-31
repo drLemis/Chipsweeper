@@ -1,0 +1,13 @@
+write (12, 17, Say hello to 'AND' logic gate)
+write (12, 18, It will pass signal only when)
+write (12, 19, both of it's inputs connected)
+write (12, 20, to an active 'INPUT' buttons)
+
+create (15, 8, UNIT)
+create (15, 11, AND)
+create (14, 15, INPUT)
+create (18, 15, INPUT)
+
+connect (1, 0, 1)
+connect (2, 1, 0)
+connect (3, 1, 2)
