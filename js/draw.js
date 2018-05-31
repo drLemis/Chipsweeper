@@ -41,6 +41,10 @@ function drawAllElements() {
             drawElement(element)
         })
 
+        textOnField.slice().reverse().forEach(element => {
+            drawText(element)
+        })
+
         checkWin()
     }
 }
@@ -144,6 +148,13 @@ function drawElement(element) {
         canvasGraphic.font = (gridSize / 2) + "px Consolas";
         canvasGraphic.fillText(element.type, (element.x + (element.width / 2)) * gridSize, (element.y + (element.height / 1.75)) * gridSize);
     }
+}
+
+function drawText(element) {
+    canvasGraphic.fillStyle = textColor;
+    canvasGraphic.textAlign = "left";
+    canvasGraphic.font = (gridSize / 2) + "px Consolas";
+    canvasGraphic.fillText(element.text, element.x * gridSize, element.y * gridSize);
 }
 
 function drawLevelID() {

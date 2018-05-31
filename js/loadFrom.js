@@ -61,6 +61,7 @@ function loadFrom(input, isOriginal) {
         }
         var inputTextArray = input.match(/[^\r\n]+/g);
         elements = new Array;
+        textOnField = new Array;
         units = new Array;
         lastLoad = input;
         panelActive = false;
@@ -78,6 +79,12 @@ function loadFrom(input, isOriginal) {
                     var match;
                     if ((match = reg.exec(line)) !== null) {
                         connectElement(parseInt(match[1]), parseInt(match[2]), parseInt(match[3]))
+                    }
+                } else if (/(write *\(\d+, *\d+, *\"*.+?\"*\))/i.test(line)) {
+                    var reg = /\((\d+), *(\d+), *\"*(.+?)\"*\)/;
+                    var match;
+                    if ((match = reg.exec(line)) !== null) {
+                        createText(parseInt(match[1]), parseInt(match[2]), match[3])
                     }
                 }
             });

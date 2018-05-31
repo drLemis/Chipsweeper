@@ -1,4 +1,5 @@
 var elements = new Array;
+var textOnField = new Array;
 var units = new Array;
 var currentID;
 
@@ -10,7 +11,7 @@ function createElement(x, y, type) {
     element.x = x;
     element.y = y;
 
-    element.type = type
+    element.type = type;
 
     if (type == "INPUT") {
         element.width = 1;
@@ -29,6 +30,14 @@ function createElement(x, y, type) {
     if (type == "UNIT") {
         units.push(element);
     }
+}
+
+function createText(x, y, text) {
+    var element = new Object();
+    element.x = x;
+    element.y = y;
+    element.text = text;
+    textOnField.push(element);
 }
 
 function connectElement(from, to, slot) {
