@@ -17,61 +17,35 @@ var difficulty = 1;
 
 function setDifficulty() {
     difficulty = document.getElementById("difficulty").value;
+    console.log("DIFFCHANGE");
     drawAllElements();
 }
 
 function drawAllElements() {
-    canvasGraphic.clearRect(0, 0, canvas.width, canvas.height);
+    if (!winCondition) {
+        canvasGraphic.clearRect(0, 0, canvas.width, canvas.height);
 
-    elements.slice().reverse().forEach(element => {
-        checkConnection(element)
-    })
-
-    elements.slice().reverse().forEach(element => {
-        drawConnection(element)
-    })
-
-    elements.slice().reverse().forEach(element => {
-        drawConnection(element, true)
-    })
-
-    elements.slice().reverse().forEach(element => {
-        drawElement(element)
-    })
-}
-
-function checkPushed(element) {
-    var result = false;
-    if (element.activeInputs[5]) {
-        result = true;
-    }
-    return result;
-}
-
-function checkConnection(element) {
-    if (element.output != undefined) {
-        switch (checkActive(element)) {
-            case true:
-                element.output.forEach(outputID => {
-                    for (let index = 0; index < elements[outputID].input.length; index++) {
-                        if (elements[outputID].input[index] == element.id)
-                            elements[outputID].activeInputs[index] = true;
-                    }
-                });
-                break;
-            default:
-                element.output.forEach(outputID => {
-                    for (let index = 0; index < elements[outputID].input.length; index++) {
-                        if (elements[outputID].input[index] == element.id)
-                            elements[outputID].activeInputs[index] = false;
-                    }
-                });
-                break;
+        if (currentID) {
+            drawLevelID()
         }
+
+        elements.slice().reverse().forEach(element => {
+            checkConnection(element)
+        })
+
+        elements.slice().reverse().forEach(element => {
+            drawConnection(element)
+        })
+
+        elements.slice().reverse().forEach(element => {
+            drawElement(element)
+        })
+
+        checkWin()
     }
 }
 
-function drawConnection(element, drawActive) {
+function drawConnection(element) {
     if (element.output != undefined) {
         element.output.forEach(outputID => {
             element.output.forEach(outputID => {
@@ -100,7 +74,7 @@ function drawConnection(element, drawActive) {
 
                         // line
                         canvasGraphic.strokeStyle = lineInactiveColor;
-                        if (checkActive(element) && difficulty < 2 && drawActive)
+                        if (checkActive(element) && difficulty < 2)
                             canvasGraphic.strokeStyle = lineActiveColor;
 
                         canvasGraphic.lineWidth = gridSize / 7.5;
@@ -172,4 +146,11 @@ function drawElement(element) {
         canvasGraphic.font = (gridSize / 2) + "px Consolas";
         canvasGraphic.fillText(element.type, (element.x + (element.width / 2)) * gridSize, (element.y + (element.height / 1.75)) * gridSize);
     }
+}
+
+function drawLevelID() {
+    canvasGraphic.fillStyle = textColor;
+    canvasGraphic.textAlign = "left";
+    canvasGraphic.font = (gridSize / 2) + "px Consolas";
+    canvasGraphic.fillText("LVL:" + currentID, gridSize / 2, gridSize / 2);
 }

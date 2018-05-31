@@ -2,9 +2,12 @@
 document.getElementById("loadFrom").value = 'create (15, 6, "UNIT")\ncreate (15, 10, "AND")\ncreate (16, 14, "INPUT")\nconnect (1, 0, 1)\nconnect (2, 1, 0)\nconnect (2, 1, 2)';
 
 
+var lastLoad;
+var listLevels = new Array;
 
 
 function refreshLevelList() {
+    listLevels = new Array;
     var selectList = document.getElementById('levelSelect');
     var i;
     for (i = selectList.options.length - 1; i > 0; i--) {
@@ -22,17 +25,18 @@ function refreshLevelList() {
                     opt.value = element;
                     opt.innerHTML = element;
                     selectList.appendChild(opt);
-
+                    listLevels.push(element);
                 });
 
             });
         });
-
 }
 
 
 function openFrom(id) {
     if (id) {
+        currentID = id;
+        document.getElementById('levelSelect').value = currentID;
         var url = "https://rawgit.com/drLemis/Chipsweeper/master/level/" + id;
         var storedText;
 
@@ -45,15 +49,21 @@ function openFrom(id) {
             });
 
         function done() {
-            loadFrom(storedText);
+            loadFrom(storedText, true);
         }
     }
 }
 
-function loadFrom(input) {
+function loadFrom(input, isOriginal) {
     if (input) {
+
+        if (!isOriginal) {
+            currentID = null;
+        }
         var inputTextArray = input.match(/[^\r\n]+/g);
         elements = new Array;
+        units = new Array;
+        lastLoad = input;
 
         if (inputTextArray && inputTextArray.length > 0) {
             inputTextArray.forEach(line => {
@@ -72,6 +82,26 @@ function loadFrom(input) {
                 }
             });
             drawAllElements();
+        }
+    }
+}
+
+function loadLast() {
+    if (currentID) {
+        openFrom(currentID)
+    } else {
+        loadFrom(lastLoad)
+    }
+}
+
+function loadNext() {
+    openFrom(getNextLevel(currentID))
+}
+
+function getNextLevel() {
+    if (currentID && listLevels.includes(currentID)) {
+        if (listLevels.length >= listLevels.indexOf(currentID) + 1) {
+            return (listLevels[listLevels.indexOf(currentID) + 1])
         }
     }
 }

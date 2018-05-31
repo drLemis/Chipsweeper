@@ -1,6 +1,9 @@
 var elements = new Array;
+var units = new Array;
+var currentID;
 
 function createElement(x, y, type) {
+    winCondition = false
     var element = new Object();
     element.id = elements.length;
 
@@ -24,6 +27,11 @@ function createElement(x, y, type) {
     element.activeInputs = new Array;
 
     elements.push(element);
+
+    if (type == "UNIT") {
+        units.push(element);
+    }
+
 }
 
 function connectElement(from, to, slot) {

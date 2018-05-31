@@ -37,7 +37,7 @@
                 <canvas id="graphCanvas" width="800px" height="600px" style="border:1px solid grey;background-color: #105010"> </canvas>
             </div>
             <div style="display: inline-block; ">
-                <button class="button" id="button" onclick="loadFrom(document.getElementById('loadFrom').value)">LOAD</button>
+                <button class="button" id="button" onclick="loadFrom(document.getElementById('loadFrom').value, false)">LOAD</button>
                 <br>
                 <br>
                 <textarea id="loadFrom" rows="37 " cols="40 "></textarea>
@@ -45,17 +45,16 @@
         </div>
     </div>
     <br>
-    <script src="create.js "></script>
-
-    <script src="draw.js "></script>
-    <script src="click.js "></script>
-    <script src="logic.js "></script>
-
-    <script src="loadFrom.js "></script>
 </body>
-
 <div class="footer ">
-    2018.05.26, v1.09
+    2018.05.26, v1.10
 </div>
 
 </html>
+
+<script src="js/create.js "></script>
+<script src="js/loadFrom.js "></script>
+<script src="js/draw.js "></script>
+<script src="js/click.js "></script>
+<script src="js/logic.js "></script>
+<script src="js/win.js "></script>
