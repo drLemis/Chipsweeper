@@ -1,11 +1,9 @@
-write (12, 4, Some levels will be a little harder)
-
 create (15, 6, UNIT)
 
 create (12, 10, AND)
 create (18, 10, AND)
 
-create (10, 14, OR)
+create (10, 14, AND)
 create (20, 14, AND)
 
 create (10, 18, INPUT)

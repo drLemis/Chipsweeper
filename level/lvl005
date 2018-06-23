@@ -1,0 +1,18 @@
+create (15, 8, UNIT)
+
+create (12, 12, OR)
+create (18, 12, OR)
+
+create (12, 16, INPUT)
+create (14, 16, INPUT)
+create (18, 16, INPUT)
+create (20, 16, INPUT)
+
+connect (1, 0, 0)
+connect (2, 0, 2)
+
+connect (3, 1, 0)
+connect (4, 1, 2)
+
+connect (5, 2, 0)
+connect (6, 2, 2)

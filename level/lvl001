@@ -1,0 +1,4 @@
+create (15, 10, UNIT)
+create (16, 14, INPUT)
+
+connect (1, 0, 1)

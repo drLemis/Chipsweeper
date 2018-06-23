@@ -1,5 +1,3 @@
-write (10, 17, Sometimes you will need a lot more of 'INPUT's)
-
 create (15, 10, UNIT)
 create (14, 14, INPUT)
 create (18, 14, INPUT)

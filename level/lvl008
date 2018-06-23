@@ -1,0 +1,26 @@
+create (10, 8, UNIT)
+
+create (10, 11, NOR)
+create (10, 14, NAND)
+
+create (10, 18, INPUT)
+create (12, 18, INPUT)
+
+connect (1, 0, 1)
+connect (2, 1, 1)
+
+connect (3, 2, 0)
+connect (4, 2, 2)
+
+
+create (20, 8, UNIT)
+
+create (20, 13, AND)
+
+create (20, 18, INPUT)
+create (22, 18, INPUT)
+
+connect (6, 5, 1)
+
+connect (7, 6, 0)
+connect (8, 6, 2)
