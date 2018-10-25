@@ -13,6 +13,13 @@ function createElement(x, y, type) {
 
 	element.type = type;
 
+
+	if (element.type == "MUXL"){
+		element.type = "v   MUX ";
+	} else if (element.type == "MUXR"){
+		element.type =  "MUX   v";
+	}
+
 	if (type == "INPUT") {
 		element.width = 1;
 		element.height = 1;

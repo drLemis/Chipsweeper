@@ -57,7 +57,11 @@ connect (26, 25, 2)
 
 
 create (26, 12, "UNIT")
-create (27, 16, "INPUT")
+create (26, 16, "MUXL")
+create (25, 20, "INPUT")
 create (27, 20, "INPUT")
+create (29, 20, "INPUT")
 connect (28, 27, 1)
 connect (29, 28, 0)
+connect (30, 28, 1)
+connect (31, 28, 2)

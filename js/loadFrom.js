@@ -12,7 +12,7 @@ function refreshLevelList() {
 		selectList.remove(i);
 	}
 
-	var url = "https://rawgit.com/drLemis/Chipsweeper/master/level/levelList";
+	var url = "https://raw.githubusercontent.com/drLemis/Chipsweeper/master/level/levelList";
 
 	fetch(url)
 		.then(function (response) {
@@ -36,7 +36,7 @@ function openFrom(id) {
 	if (id) {
 		currentID = id;
 		document.getElementById('levelSelect').value = currentID;
-		var url = "https://rawgit.com/drLemis/Chipsweeper/master/level/" + id;
+		var url = "https://raw.githubusercontent.com/drLemis/Chipsweeper/master/level/" + id;
 		var storedText;
 
 		fetch(url)

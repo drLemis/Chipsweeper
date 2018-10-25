@@ -1,0 +1,33 @@
+create (14, 4, UNIT)
+
+create (12, 8, MUXL)
+connect (1, 0, 0)
+
+create (9, 12, MUXL)
+connect (2, 1, 0)
+
+create (8, 17, INPUT)
+connect (3, 2, 0)
+create (10, 17, INPUT)
+connect (4, 2, 1)
+create (12, 17, INPUT)
+connect (5, 2, 2)
+
+create (16, 8, MUXL)
+connect (6, 0, 2)
+
+create (19, 12, MUXL)
+connect (7, 6, 1)
+
+create (18, 17, INPUT)
+connect (8, 7, 0)
+create (20, 17, INPUT)
+connect (9, 7, 1)
+create (22, 17, INPUT)
+connect (10, 7, 2)
+
+create (16, 17, INPUT)
+connect (11, 6, 0)
+
+create (14, 17, INPUT)
+connect (12, 1, 1)

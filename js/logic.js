@@ -53,6 +53,21 @@ function checkActive(element) {
 				if (active != 0)
 					result = true;
 				break;
+			
+			case " MUX   v":
+				if (element.activeInputs[2]) {
+					result = element.activeInputs[1];
+				} else {
+					result = element.activeInputs[0];
+				}
+				break;
+			case "v   MUX ":
+				if (element.activeInputs[0]) {
+					result = element.activeInputs[1];
+				} else {
+					result = element.activeInputs[2];
+				}
+				break;
 
 			case "UNIT":
 				if (element.input && active == element.input.filter(Boolean).length) {
